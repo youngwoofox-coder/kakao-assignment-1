@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- 앱 제목 -->
+      <h1 class="app-title">Todo</h1>
+
+      <!-- 월 네비게이션: 이전 월(«) / 현재 월 표시 / 다음 월(») -->
+      <div class="month-nav">
+        <button id="prevMonthButton" class="month-nav-btn" aria-label="이전 월">&#171;</button>
+        <span id="monthDisplay" class="month-nav-label"></span>
+        <button id="nextMonthButton" class="month-nav-btn" aria-label="다음 월">&#187;</button>
+      </div>
+
+      <!-- 주간 네비게이션: 이전 주(‹) / 7개 날짜 셀 / 다음 주(›) -->
+      <div class="week-nav">
+        <button id="prevWeekButton" class="week-nav-arrow" aria-label="이전 주">&#8249;</button>
+        <div id="weekDates" class="week-dates"></div>
+        <button id="nextWeekButton" class="week-nav-arrow" aria-label="다음 주">&#8250;</button>
+      </div>
+
+      <!-- 입력 영역 카드 -->
+      <div class="input-card">
+        <div class="input-row">
+          <input
+            type="text"
+            id="todoInput"
+            class="todo-input"
+            placeholder="할 일을 입력하세요"
+          />
+          <button id="addButton" class="btn btn-add">추가</button>
+        </div>
+        <!-- 입력 검증 안내 메시지 (기본 숨김) -->
+        <p id="validationMessage" class="validation-message hidden">
+          할 일 내용을 입력해 주세요.
+        </p>
+      </div>
+
+      <!-- 필터 탭: 전체 / 진행 중 / 완료 -->
+      <div class="filter-tabs">
+        <button class="filter-tab is-active" data-filter="all">전체</button>
+        <button class="filter-tab" data-filter="active">진행 중</button>
+        <button class="filter-tab" data-filter="completed">완료</button>
+      </div>
+
+      <!-- Todo 목록 -->
+      <ul id="todoList" class="todo-list"></ul>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
