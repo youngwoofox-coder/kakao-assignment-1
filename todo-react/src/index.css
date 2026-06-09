@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+/* ===== 디자인 토큰 =====
+   색상을 한 곳에서 관리한다. 변경 시 이 파일만 수정하면 된다. */
+@theme {
+  /* 브랜드 컬러 */
+  --color-primary:        #672be0;
+  --color-primary-light:  #ede9fb;
+  --color-primary-dim:    #d9cff8;
+
+  /* 레이아웃 */
+  --color-page:           #f4f4f8;
+  --color-body:           #1a1a2e;
+
+  /* 텍스트 계층 */
+  --color-muted:          #888888;
+  --color-faint:          #aaaaaa;
+  --color-subtle:         #999999;
+  --color-empty:          #bbbbbb;
+
+  /* 입력 */
+  --color-input:          #e0e0e8;
+
+  /* 상태 색상 */
+  --color-warning:        #f59e0b;
+  --color-warning-light:  #fff8e1;
+  --color-success:        #22c55e;
+  --color-success-light:  #e8f5e9;
+  --color-ghost:          #f0f0f5;
+  --color-danger:         #ef4444;
+  --color-danger-light:   #fdecea;
+}
