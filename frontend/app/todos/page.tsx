@@ -1,10 +1,9 @@
 import { getTodos } from "@/app/actions";
 import DateNavigation from "@/components/DateNavigation";
-import DeleteTodoButton from "@/components/DeleteTodoButton";
 import FilterTabs from "@/components/FilterTabs";
 import SearchBar from "@/components/SearchBar";
+import TodoActions from "@/components/TodoActions";
 import TodoInput from "@/components/TodoInput";
-import ToggleTodoButton from "@/components/ToggleTodoButton";
 import {
   buildCountByDate,
   formatDateKey,
@@ -13,7 +12,6 @@ import {
   parseDate,
 } from "@/lib/dateUtils";
 import type { TodoFilter } from "@/lib/types";
-import Link from "next/link";
 import { Suspense } from "react";
 
 interface TodosPageProps {
@@ -74,43 +72,29 @@ export default async function TodosPage({ searchParams }: TodosPageProps) {
             : getEmptyMessage(filter)}
         </p>
       ) : (
-        <ul className="flex flex-col gap-2.5">
+        <ul className="flex flex-col gap-3">
           {todos.map((todo) => (
             <li
               key={todo.id}
-              className={`flex items-center justify-between rounded-xl bg-white p-4 shadow-[0_2px_8px_rgba(103,43,224,0.06)] ${
+              className={`flex items-center justify-between rounded-xl border border-zinc-200 bg-white p-4 shadow-[0_2px_8px_rgba(103,43,224,0.06)] ${
                 todo.completed ? "opacity-60" : ""
               }`}
             >
-              <div className="flex flex-col gap-1">
-                <span
-                  className={
-                    todo.completed
-                      ? "text-zinc-400 line-through"
-                      : "font-medium text-zinc-800"
-                  }
-                >
-                  {todo.title}
-                </span>
-                <span className="text-xs text-zinc-500">
-                  {todo.completed ? "완료" : "진행 중"}
-                </span>
-              </div>
+              <span
+                className={
+                  todo.completed
+                    ? "text-zinc-400 line-through"
+                    : "font-medium text-zinc-800"
+                }
+              >
+                {todo.title}
+              </span>
 
-              <div className="flex items-center gap-2">
-                <ToggleTodoButton
-                  todoId={todo.id}
-                  completed={todo.completed}
-                  version={todo.version}
-                />
-                <Link
-                  href={`/todos/${todo.id}`}
-                  className="rounded-lg border border-zinc-300 px-3 py-1 text-sm transition hover:bg-zinc-50"
-                >
-                  수정
-                </Link>
-                <DeleteTodoButton todoId={todo.id} />
-              </div>
+              <TodoActions
+                todoId={todo.id}
+                completed={todo.completed}
+                version={todo.version}
+              />
             </li>
           ))}
         </ul>

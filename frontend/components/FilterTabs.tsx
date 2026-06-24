@@ -37,7 +37,7 @@ export default function FilterTabs() {
             key={item.value}
             type="button"
             onClick={() => handleFilterChange(item.value)}
-            className={`rounded-lg px-4 py-2 text-sm transition ${
+            className={`flex-1 rounded-lg px-4 py-2 text-sm transition ${
               isActive
                 ? "bg-[#672be0] text-white"
                 : "border border-zinc-300 text-zinc-600 hover:bg-zinc-50"
